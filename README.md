@@ -1,0 +1,2 @@
+# ember-note
+ember note
