@@ -1,21 +1,30 @@
-<div class="container">
-<div class="row">
-    <div class="col-md-2">
-        Welcome to EmberNote
-    </div>
-<div class="col-md-10">
-{{#if user}}
-        Hello, {{user.name}}
-{{/if}}
-{{#unless user}}
-  {{#link-to 'register'}}register{{/link-to}}&nbsp;
-  {{#link-to 'login'}}login{{/link-to}}
-{{/unless}}
-</div>
-</div>
-    <div class="row">
-        <div>
-          {{outlet}}
+<div class="panel panel-primary" style="max-width:500px;margin-left:auto;margin-right:auto;">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Login</h3>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal" id="login-form">
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">username</label>
+        <div class="col-sm-5">
+          {{input value=name type="email" class="form-control" id="username" placeholder="Email"}}
         </div>
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">password</label>
+        <div class="col-sm-5">
+          {{input value=password type="password" class="form-control" id="password" placeholder="Password"}}
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button {{action "login"}} type="submit" class="btn btn-default">Sign in</button>
+        </div>
+      </div>
+      <p>new user? {{#link-to 'register'}}create new account{{/link-to}}</p>
+    </form>
+  </div>
+</div>
+<div class="row">
+{{outlet}}
 </div>
