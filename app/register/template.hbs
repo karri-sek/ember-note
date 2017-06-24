@@ -1,6 +1,11 @@
 <div class="col-md-12">
-		Register new user: {{input value=name}}
-		<button {{action 'addNew'}}>Add</button>
+		<label id='username'> username : </label>
+			{{input value=username id='username' placeholder='please enter username'}}
+		<label id='password'> password : </label>
+			{{input value=password id='password' placeholder='please enter password'}}
+		<label id='password'> confirm password : </label>
+			{{input value=confirmpassword id='confirm_password' placeholder='please retype password'}}
+		<button {{action 'addNew'}}>Register</button>
 </div>
 <div class="col-md-12">
 	{{message}}

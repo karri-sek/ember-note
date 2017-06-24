@@ -1,21 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#menu-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{ link-to 'Home' 'index' class="navbar-brand" }}
+    {{#if user}}
+            Hello, {{user.name}}
+    {{/if}}
+    {{#unless user}}
+      {{#link-to 'register' class="navbar-brand"}}register{{/link-to}}&nbsp;
+      {{#link-to 'login' class="navbar-brand"}}login{{/link-to}}
+    {{/unless}}
+      </div>
+  </div>
+</nav>
+
 <div class="container">
-<div class="row">
-    <div class="col-md-2">
-        Welcome to EmberNote
-    </div>
-<div class="col-md-10">
-{{#if user}}
-        Hello, {{user.name}}
-{{/if}}
-{{#unless user}}
-  {{#link-to 'register'}}register{{/link-to}}&nbsp;
-  {{#link-to 'login'}}login{{/link-to}}
-{{/unless}}
-</div>
-</div>
-    <div class="row">
-        <div>
-          {{outlet}}
-        </div>
-    </div>
+  {{outlet}}
 </div>
