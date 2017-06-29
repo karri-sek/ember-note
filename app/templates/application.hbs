@@ -1,3 +1,5 @@
+{{application/site-navbar}}
+<div class="row">
 <div class="panel panel-primary" style="max-width:500px;margin-left:auto;margin-right:auto;">
   <div class="panel-heading">
     <h3 class="panel-title text-center">Login</h3>
@@ -24,6 +26,10 @@
       <p>new user? {{#link-to 'register'}}create new account{{/link-to}}</p>
     </form>
   </div>
+</div>
+{{#if session.isAuthenticated}}
+  <a id="logout" {{ action 'invalidateSession' }}>Logout</a>
+{{/if}}
 </div>
 <div class="row">
 {{outlet}}
