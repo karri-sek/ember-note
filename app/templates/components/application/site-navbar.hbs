@@ -20,11 +20,24 @@
                        <a class="dropdown-toggle">Log Out</a>
                    </li>
                {{else}}
-                   {{#link-to 'login' tagName="li" class="float-lg-right"}}
-                       <a class="dropdown-toggle">Log In</a>
-                   {{/link-to}}
+               <li class="nav-item">
+                 <a href="#" id="sign-up-botton" class="nav-link"  data-test-sign-up-header
+                   {{action (queue
+                     (action (mut authComponent) "sign-in")
+                     (toggle "authOpened" this)
+                     )}}>
+                     Sign-in
+                   </a>
+              </li>
                {{/if}}
            </ul>
    </div>
  </div>
 </nav>
+{{! Authentication Modal }}
+{{#if authOpened}}
+  {{to-elsewhere named="modal" send=(component "application/auth-onboarding"
+    modalId="auth-modal"
+    component=authComponent
+    onClose=(toggle-action "authOpened" this))}}
+{{/if}}
