@@ -1,0 +1,12 @@
+{
+  "name": "bootstrap-v4",
+  "dependencies": {
+    "ember-cli-htmlbars": "*"
+  },
+  "keywords": [
+    "ember-addon"
+  ],
+  "ember-addon": {
+    "after": ["ember-tether"]
+  }
+}
